@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsListNested } from 'react-icons/bs';
 import { GiOpenBook } from 'react-icons/gi'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
+import auth from '../../../firebase.init';
 const Header = ({ fixed }) => {
+    const [user, loading, error] = useAuthState(auth);
     const [navbarOpen, setNavbarOpen] = useState(false);
     return (
         <div className='text-xl absolute top-0 z-50 left-0 right-0'>
@@ -37,11 +41,17 @@ const Header = ({ fixed }) => {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/login'
-                                    className="px-3 py-2 flex items-center text-xl uppercase font-bold leading-snug text-red-400 hover:opacity-75"
-                                >
-                                    <span className="ml-2">Login</span>
-                                </Link>
+                                {
+                                    user ? <Link onClick={() => signOut(auth)} to='/login'
+                                        className="px-3 py-2 flex items-center text-xl uppercase font-bold leading-snug text-red-400 hover:opacity-75"
+                                    >
+                                        <span className="ml-2">Logout</span>
+                                    </Link> : <Link to='/login'
+                                        className="px-3 py-2 flex items-center text-xl uppercase font-bold leading-snug text-red-400 hover:opacity-75"
+                                    >
+                                        <span className="ml-2">Login</span>
+                                    </Link>
+                                }
                             </li>
                             <li className="nav-item">
                                 <Link to='/signup'
