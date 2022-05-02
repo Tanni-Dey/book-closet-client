@@ -2,7 +2,7 @@ import React from 'react';
 
 const Bestbook = () => {
     return (
-        <div className='grid grid-cols-2 gap-40 m-20 items-center font-sans'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-40 m-20 items-center font-sans'>
             <div className='text-left'>
                 <h5 className='font-serif text-xl text-gray-700 uppercase'>Best Selling Book</h5>
                 <h2 className='text-6xl pt-5 text-red-400 uppercase font-sans'>Stock Market Investing</h2>
