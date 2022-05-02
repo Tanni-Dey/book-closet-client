@@ -19,37 +19,39 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const [updateProfile] = useUpdateProfile(auth);
+    // const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
 
     useEffect(() => {
         if (loading) {
             <Loading />
         }
-    }, [])
+    })
+    if (user) {
+        navigate('/')
+    }
 
-    const onSubmit = async (data, event) => {
+    const handleSignup = async (event) => {
+        event.preventDefault()
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         const cpass = event.target.cpassword.value;
-        if (data.password !== cpass) {
+
+        if (password !== cpass) {
             return toast.error('Password not Matched with confirm password')
         }
+
         await createUserWithEmailAndPassword(email, password);
-        await updateProfile({ displayName: name })
         toast.success('Sent Email')
-        navigate('/')
-        // console.log(user);
-        /*  if (user) {
-             
-         } */
+        // await updateProfile({ displayName: name })
         event.target.reset()
     }
+
     return (
         <div className='bg-red-200 pt-40 h-screen grid grid-cols-1 md:grid-cols-2'>
             <div className='w-1/2 mx-auto'>
                 <h3 className='font-serif text-3xl'>Sign Up</h3>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSignup}>
                     <input className='p-2 mt-5 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Name' type='text' name='name' {...register("Name")} />
                     <input className='py-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Email' type='email' name='email' {...register("email")} required />
                     <input className='p-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Password' name='password' type='password' {...register("password")} required />
