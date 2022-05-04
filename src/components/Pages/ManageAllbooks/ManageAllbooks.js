@@ -4,15 +4,33 @@ import useAllBooks from '../../hooks/useAllbooks/useAllBooks';
 
 const ManageAllbooks = () => {
     const [books, setBooks] = useAllBooks();
+
+    const handleDelete = (id) => {
+        const isConfirm = window.confirm('Are you want delete this book?')
+        if (isConfirm) {
+            fetch(`http://localhost:5000/book/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.deletedCount > 0) {
+                        setBooks(books.filter(book => book._id !== id))
+                    }
+
+                })
+        }
+    }
+
     return (
-        <div className='bg-red-200 px-20 pt-24 h-full'>
+        <div className='bg-red-200 px-20 py-24 h-full'>
             <table className='table-auto w-full border-collapse border border-white'>
                 <tr>
                     <th className='py-5 text-xl'>Name</th>
                     <th className='text-xl'>Supplier Name</th>
                     <th className='text-xl'>Price</th>
                     <th className='text-xl'>Quantity</th>
-                    <th><Link to='/addbook' className='bg-green-700 p-2 rounded text-white'>Add Book</Link></th>
+                    <th><Link to='/addbook' className='bg-green-700 p-2 rounded text-white'>Add New Book</Link></th>
                 </tr>
 
                 {
@@ -22,7 +40,7 @@ const ManageAllbooks = () => {
                         <td className='border border-white'>{book.sName}</td>
                         <td>{book.price}</td>
                         <td>{book.quantity}</td>
-                        <td><button className='bg-red-600 p-2 rounded text-white'>Delete</button></td>
+                        <td><button onClick={() => handleDelete(book._id)} className='bg-red-600 p-2 rounded text-white'>Delete</button></td>
                     </tr>)
                 }
             </table>

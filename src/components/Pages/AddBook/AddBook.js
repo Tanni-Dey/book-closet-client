@@ -1,8 +1,14 @@
+import userEvent from '@testing-library/user-event';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import auth from '../../../firebase.init';
 
 const AddBook = () => {
     const { register, handleSubmit } = useForm();
+    const [user] = useAuthState(auth);
+
     const onSubmit = (data, event) => {
         fetch('http://localhost:5000/books', {
             method: 'POST',
@@ -11,8 +17,8 @@ const AddBook = () => {
             },
             body: JSON.stringify(data)
         })
-        console.log(data)
         event.target.reset();
+        toast.success('Book Added')
     };
 
     return (
@@ -21,6 +27,7 @@ const AddBook = () => {
                 <h3 className='font-serif text-3xl'>Add Book</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input className='py-2 px-5 mt-5 focus:outline-red-300 rounded-full mb-2 w-full' {...register("name")} placeholder='Name' type='text' required />
+                    <input className='py-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' {...register("email")} value={user?.email} placeholder='Your Email' type='email' required />
                     <input className='py-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' {...register("img")} placeholder='Image-Url' type='text' required />
                     <input className='py-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' {...register("price")} placeholder='Price' type='number' required />
                     <input className='py-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' {...register("quantity")} placeholder='Quantity' type='number' required />

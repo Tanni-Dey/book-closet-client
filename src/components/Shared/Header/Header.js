@@ -41,6 +41,33 @@ const Header = ({ fixed }) => {
                                     <span className="ml-2">Home</span>
                                 </Link>
                             </li>
+                            {
+                                user ? <li className="nav-item">
+                                    <Link to='/allbooks'
+                                        className="px-3 py-2 flex items-center text-xl uppercase font-bold leading-snug text-red-400 hover:opacity-75"
+                                    >
+                                        <span className="ml-2">Manage Books</span>
+                                    </Link>
+                                </li> : ''
+                            }
+                            {
+                                user ? <li className="nav-item">
+                                    <Link to='/addbook'
+                                        className="px-3 py-2 flex items-center text-xl uppercase font-bold leading-snug text-red-400 hover:opacity-75"
+                                    >
+                                        <span className="ml-2">Add Book</span>
+                                    </Link>
+                                </li> : ''
+                            }
+                            {
+                                user ? <li className="nav-item">
+                                    <Link to='/mybooks'
+                                        className="px-3 py-2 flex items-center text-xl uppercase font-bold leading-snug text-red-400 hover:opacity-75"
+                                    >
+                                        <span className="ml-2">My Books</span>
+                                    </Link>
+                                </li> : ''
+                            }
                             <li className="nav-item">
                                 {
                                     user ? <Link onClick={() => signOut(auth)} to='/login'

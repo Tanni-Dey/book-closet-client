@@ -13,7 +13,7 @@ const ManageBook = () => {
     }, [singleBook])
 
     const handleDelivered = () => {
-        const updateQuantity = quantity - 1;
+        const updateQuantity = Number(quantity) - 1;
         const newQuantity = { updateQuantity }
         fetch(`http://localhost:5000/book/${id}`, {
             method: 'PUT',
