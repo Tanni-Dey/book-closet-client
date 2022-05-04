@@ -7,7 +7,7 @@ import AllBooks from '../AllBooks/Allbooks/AllBooks';
 const Home = () => {
     return (
         <div>
-            <Banner />
+            {/* <Banner /> */}
             <AllBooks />
             <Bestbook />
             <Upcoming />

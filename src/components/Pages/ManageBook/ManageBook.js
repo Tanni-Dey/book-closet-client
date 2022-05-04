@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 
 const ManageBook = () => {
@@ -43,15 +43,14 @@ const ManageBook = () => {
     }
 
     return (
-        <div className='pt-24'>
+        <div className='pt-20'>
             <h2 className='text-3xl text-red-400 font-serif mb-10'>{name}</h2>
-            <div className='rounded-xl  w-1/2 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 items-center border-2 border-red-400 rounded-xl hover:shadow-2xl hover:shadow-black transition ease-in-out  hover:scale-105  duration-700'>
+            <div className=' w-1/2 mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 items-center border-2 border-red-400 rounded-xl hover:shadow-2xl hover:shadow-black transition ease-in-out  hover:scale-105  duration-700'>
                 <div className='p-5'>
                     <img className='rounded-xl ' src={img} alt="" />
                 </div>
 
-                <div className='rounded-xl '>{/* 
-                    <h4 className='text-2xl text-red-400 font-serif my-5'>{name}</h4> */}
+                <div className='rounded-xl '>
                     <p className=' text-gray-400 font-sans text-justify px-5'>Overview: {des}
                     </p>
 
@@ -67,6 +66,7 @@ const ManageBook = () => {
                     </form>
                 </div>
             </div>
+            <Link to='/allbooks'><button className='font-serif w-1/3 mx-auto justify-center text-xl text-white bg-red-400 rounded-3xl px-10 py-2 my-5 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700'>Manage All Books</button>  </Link>
         </div>
     );
 };
