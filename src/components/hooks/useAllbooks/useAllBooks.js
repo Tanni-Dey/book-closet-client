@@ -5,7 +5,10 @@ const useAllBooks = () => {
     useEffect(() => {
         fetch('http://localhost:5000/books')
             .then(res => res.json())
-            .then(data => setBooks(data))
+            .then(data => {
+                setBooks(data)
+                console.log(data)
+            })
     }, [])
     return [books, setBooks];
 };

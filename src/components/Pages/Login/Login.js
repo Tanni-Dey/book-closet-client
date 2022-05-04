@@ -1,7 +1,7 @@
 import { async } from '@firebase/util';
 import React, { useEffect, useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
@@ -11,6 +11,9 @@ const Login = () => {
     const emailRef = useRef('')
     const passRef = useRef('')
     const navigate = useNavigate()
+    let location = useLocation();
+
+    let from = location?.state?.from?.pathname || "/";
 
     const [
         signInWithEmailAndPassword,
@@ -29,7 +32,8 @@ const Login = () => {
     })
 
     if (user) {
-        navigate('/')
+        // navigate('/')
+        navigate(from, { replace: true });
     }
 
 
