@@ -52,9 +52,9 @@ const SignUp = () => {
             <div className='w-1/2 mx-auto'>
                 <h3 className='font-serif text-3xl'>Sign Up</h3>
                 <form onSubmit={handleSignup}>
-                    <input className='p-2 mt-5 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Name' type='text' name='name' {...register("Name")} />
-                    <input className='py-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Email' type='email' name='email' {...register("email")} required />
-                    <input className='p-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Password' name='password' type='password' {...register("password")} required />
+                    <input className='p-2 mt-5 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Name' type='text' name='name' />
+                    <input className='py-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Email' type='email' name='email' required />
+                    <input className='p-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Password' name='password' type='password' required />
                     <input className='p-2 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Confirm Password' type='password' name='cpassword' required />
                     {
                         error ? <p className='text-red-600'>{error?.message}</p> : ''

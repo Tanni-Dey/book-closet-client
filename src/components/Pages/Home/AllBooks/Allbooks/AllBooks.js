@@ -13,7 +13,7 @@ const AllBooks = () => {
                     books.slice(0, 6).map(book => <Book key={book._id} book={book} />)
                 }
             </div>
-            <Link to='/allbooks'><button className='font-serif w-1/2 mx-auto justify-center text-xl text-white bg-red-400 rounded-3xl px-10 py-2 mt-20 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700'>Manage All Books</button>  </Link>
+            <Link to='/allbooks'><button className='font-serif md:w-1/2 mx-auto justify-center text-xl text-white bg-red-400 rounded-3xl px-10 py-2 mt-20 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700'>Manage All Books</button>  </Link>
         </div>
     );
 };

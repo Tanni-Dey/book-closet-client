@@ -41,6 +41,13 @@ const Header = ({ fixed }) => {
                                     <span className="ml-2">Home</span>
                                 </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link to='/about'
+                                    className="px-3 py-2 flex items-center text-xl uppercase font-bold leading-snug text-red-400 hover:opacity-75"
+                                >
+                                    <span className="ml-2">About</span>
+                                </Link>
+                            </li>
                             {
                                 user ? <li className="nav-item">
                                     <Link to='/allbooks'
@@ -82,10 +89,19 @@ const Header = ({ fixed }) => {
                                 }
                             </li>
                             <li className="nav-item">
-                                <Link to='/signup'
+                                {
+                                    !user ? <Link to='/signup'
+                                        className="px-3 py-2 flex items-center text-xl uppercase font-bold leading-snug text-red-400 hover:opacity-75"
+                                    >
+                                        <span className="ml-2">Sign Up</span>
+                                    </Link> : ''
+                                }
+                            </li>
+                            <li className="nav-item">
+                                <Link to='/blogs'
                                     className="px-3 py-2 flex items-center text-xl uppercase font-bold leading-snug text-red-400 hover:opacity-75"
                                 >
-                                    <span className="ml-2">Sign Up</span>
+                                    <span className="ml-2">Blogs</span>
                                 </Link>
                             </li>
                         </ul>

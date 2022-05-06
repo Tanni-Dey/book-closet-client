@@ -23,7 +23,7 @@ const AddBook = () => {
 
     return (
         <div className='bg-red-200 px-20 py-24 h-full'>
-            <div className='w-1/2 mx-auto'>
+            <div className='md:w-1/2 mx-auto'>
                 <h3 className='font-serif text-3xl'>Add Book</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input className='py-2 px-5 mt-5 focus:outline-red-300 rounded-full mb-2 w-full' {...register("name")} placeholder='Name' type='text' required />

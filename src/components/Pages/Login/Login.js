@@ -1,4 +1,5 @@
 import { async } from '@firebase/util';
+import axios from 'axios';
 import React, { useEffect, useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -33,15 +34,18 @@ const Login = () => {
 
     if (user) {
         // navigate('/')
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
 
 
-    const handleLogin = event => {
+    const handleLogin = async event => {
         event.preventDefault()
         const email = emailRef.current.value;
         const password = passRef.current.value;
-        signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password)
+        const { data } = await axios.post('http://localhost:5000/login', { email })
+        localStorage.setItem('accessToken', data.accessToken)
+        navigate(from, { replace: true });
     }
 
     const handleReset = async () => {
@@ -59,7 +63,7 @@ const Login = () => {
 
     return (
         <div className='bg-red-200 py-40 h-full grid grid-cols-1 md:grid-cols-2'>
-            <div className='w-1/2 mx-auto'>
+            <div className='w-full md:w-1/2 mx-auto'>
                 <h3 className='font-serif text-3xl'>Login</h3>
                 <form onSubmit={handleLogin}>
                     <input className='py-2 px-5 mt-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Email' type='email' ref={emailRef} name='email' required />
