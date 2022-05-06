@@ -11,6 +11,7 @@ import ManageBook from './components/Pages/ManageBook/ManageBook';
 import MyBooks from './components/Pages/MyBooks/MyBooks';
 import NotFound from './components/Pages/NotFound/NotFound';
 import SignUp from './components/Pages/SignUp/SignUp';
+import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
 import RequiredAuth from './components/Shared/RequiredAuth/RequiredAuth';
 
@@ -39,6 +40,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
       </Routes>
       <ToastContainer />
+      <Footer />
     </div>
   );
 }
