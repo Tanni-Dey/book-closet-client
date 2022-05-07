@@ -14,9 +14,6 @@ const MyBooks = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const allemailbook = books.filter(book => book.email)
-        const userBook = allemailbook.filter(book => book.email === user.email)
-
         const getMyBooks = async () => {
             const email = user.email;
             try {
@@ -36,7 +33,6 @@ const MyBooks = () => {
             }
         }
         getMyBooks()
-        // setMyaddedBooks(userBook)
     }, [books])
 
     const handleDelete = (id) => {

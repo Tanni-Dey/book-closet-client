@@ -1,6 +1,6 @@
 import { async } from '@firebase/util';
 import axios from 'axios';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -13,6 +13,8 @@ const Login = () => {
     const passRef = useRef('')
     const navigate = useNavigate()
     let location = useLocation();
+    const [spinner, setSpinner] = useState(true);
+
 
     let from = location?.state?.from?.pathname || "/";
 
@@ -32,10 +34,14 @@ const Login = () => {
         }
     })
 
-    if (user) {
-        // navigate('/')
-        // navigate(from, { replace: true });
+    useEffect(() => {
+        setTimeout(() => setSpinner(false), 1000)
+    }, []);
+
+    if (spinner) {
+        return <Loading />
     }
+
 
 
     const handleLogin = async event => {
@@ -45,8 +51,13 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password)
         const { data } = await axios.post('http://localhost:5000/login', { email })
         localStorage.setItem('accessToken', data.accessToken)
-        navigate(from, { replace: true });
+
+        if (user) {
+            navigate(from, { replace: true });
+        }
     }
+
+
 
     const handleReset = async () => {
         const email = emailRef.current.value;
@@ -61,8 +72,10 @@ const Login = () => {
         }
     }
 
+
+
     return (
-        <div className='bg-red-200 py-40 h-full grid grid-cols-1 md:grid-cols-2'>
+        !spinner && <div className='bg-red-200 py-40 h-full grid grid-cols-1 md:grid-cols-2'>
             <div className='w-full md:w-1/2 mx-auto'>
                 <h3 className='font-serif text-3xl'>Login</h3>
                 <form onSubmit={handleLogin}>

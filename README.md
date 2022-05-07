@@ -1,5 +1,17 @@
 # Book Closet
 
+### Live Site
+
+## Description
+This is a book warehouse website. It has 100+ books. User can signup with social login or email password login. After login he/she can add many books in this website and show this books manage books page and my books page. Upcomming book section has see in home page.
+
+### Some Feature uses in this website 
+* React-Router, firebase,mongodb database
+* Tailwind Css framework
+* React-hooks-form ,react tostify
+* React-firebase-hooks
+* Express Js, Node js ,JWT 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

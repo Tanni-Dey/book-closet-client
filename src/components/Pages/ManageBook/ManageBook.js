@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react'
+import Book from '../Home/AllBooks/Book/Book';
 
 const ManageBook = () => {
     const { id } = useParams();
@@ -13,17 +14,20 @@ const ManageBook = () => {
     }, [singleBook])
 
     const handleDelivered = () => {
-        const updateQuantity = Number(quantity) - 1;
-        const newQuantity = { updateQuantity }
-        fetch(`http://localhost:5000/book/${id}`, {
-            method: 'PUT',
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(newQuantity)
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
+        if (quantity > 0) {
+            const updateQuantity = Number(quantity) - 1;
+            const newQuantity = { updateQuantity }
+            fetch(`http://localhost:5000/book/${id}`, {
+                method: 'PUT',
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(newQuantity)
+            })
+                .then(res => res.json())
+                .then(data => console.log(data))
+        }
+
     }
     const handlerestock = (event) => {
         event.preventDefault()
@@ -56,7 +60,7 @@ const ManageBook = () => {
 
                     <h6 className='text-red-400 text-xl font-serif py-3'>Price : ${price}</h6>
                     <h6 className=' flex justify-between px-5 font-semibold text-gray-500 font-serif'>
-                        <span className=''>Stock in : {quantity}</span>
+                        <span className=''>Stock in : {quantity === 0 ? 'sold out' : quantity}</span>
                         <span>Supply by {sName}</span>
                     </h6>
                     <button onClick={handleDelivered} className='text-white bg-red-400 rounded-3xl px-10 py-2 my-5 border-2 border-red-400 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700'>Delivered</button>

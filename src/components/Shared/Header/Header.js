@@ -8,7 +8,6 @@ import auth from '../../../firebase.init';
 const Header = ({ fixed }) => {
     const [user, loading, error] = useAuthState(auth);
     const [navbarOpen, setNavbarOpen] = useState(false);
-    console.log(user);
     return (
         <div className='text-xl absolute top-0 z-50 left-0 right-0'>
             <nav className="relative flex flex-wrap items-center justify-between px-2 py-5 bg-transparent top-0">

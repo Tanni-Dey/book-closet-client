@@ -21,6 +21,7 @@ const Social = () => {
         }
 
     }, [googleError])
+
     useEffect(() => {
         if (gitError) {
             toast.error(gitError?.message)

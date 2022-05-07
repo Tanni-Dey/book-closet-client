@@ -19,7 +19,6 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    // const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
 
     useEffect(() => {
         if (loading) {
@@ -43,7 +42,6 @@ const SignUp = () => {
 
         await createUserWithEmailAndPassword(email, password);
         toast.success('Sent Email')
-        // await updateProfile({ displayName: name })
         event.target.reset()
     }
 
