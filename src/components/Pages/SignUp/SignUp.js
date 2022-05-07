@@ -41,7 +41,9 @@ const SignUp = () => {
         }
 
         await createUserWithEmailAndPassword(email, password);
-        toast.success('Sent Email')
+        if (!error) {
+            toast.success('Sent Email')
+        }
         event.target.reset()
     }
 

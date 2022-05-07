@@ -42,6 +42,9 @@ const Login = () => {
         return <Loading />
     }
 
+    if (user) {
+        navigate(from, { replace: true });
+    }
 
 
     const handleLogin = async event => {
@@ -49,12 +52,9 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passRef.current.value;
         await signInWithEmailAndPassword(email, password)
-        const { data } = await axios.post('http://localhost:5000/login', { email })
+        const { data } = await axios.post('https://calm-reaches-89573.herokuapp.com/login', { email })
         localStorage.setItem('accessToken', data.accessToken)
 
-        if (user) {
-            navigate(from, { replace: true });
-        }
     }
 
 

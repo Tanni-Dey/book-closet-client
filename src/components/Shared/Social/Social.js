@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc'
 import { BsGithub } from 'react-icons/bs'
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../Loading/Loading';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Social = () => {
     const navigate = useNavigate()
+    let location = useLocation();
+    let from = location?.state?.from?.pathname || "/";
+
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
 
@@ -30,7 +33,7 @@ const Social = () => {
     }, [gitError])
 
     if (googleUser || gitUser) {
-        navigate('/')
+        navigate(from, { replace: true });
     }
     return (
         <div>

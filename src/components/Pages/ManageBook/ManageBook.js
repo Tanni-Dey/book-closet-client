@@ -8,7 +8,7 @@ const ManageBook = () => {
     const [singleBook, setSignleBook] = useState({});
     const { _id, name, des, price, quantity, img, sName } = singleBook;
     useEffect(() => {
-        fetch(`http://localhost:5000/book/${id}`)
+        fetch(`https://calm-reaches-89573.herokuapp.com/book/${id}`)
             .then(res => res.json())
             .then(data => setSignleBook(data))
     }, [singleBook])
@@ -17,7 +17,7 @@ const ManageBook = () => {
         if (quantity > 0) {
             const updateQuantity = Number(quantity) - 1;
             const newQuantity = { updateQuantity }
-            fetch(`http://localhost:5000/book/${id}`, {
+            fetch(`https://calm-reaches-89573.herokuapp.com/book/${id}`, {
                 method: 'PUT',
                 headers: {
                     "content-type": "application/json"
@@ -34,7 +34,7 @@ const ManageBook = () => {
         const quantyValue = event.target.restock.value;
         const updateQuantity = Number(quantity) + Number(quantyValue);
         const newQuantity = { updateQuantity }
-        fetch(`http://localhost:5000/book/${id}`, {
+        fetch(`https://calm-reaches-89573.herokuapp.com/book/${id}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json"

@@ -10,7 +10,7 @@ const AddBook = () => {
     const [user] = useAuthState(auth);
 
     const onSubmit = (data, event) => {
-        fetch('http://localhost:5000/books', {
+        fetch('https://calm-reaches-89573.herokuapp.com/books', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

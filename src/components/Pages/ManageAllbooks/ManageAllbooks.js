@@ -8,7 +8,7 @@ const ManageAllbooks = () => {
     const handleDelete = (id) => {
         const isConfirm = window.confirm('Are you want delete this book?')
         if (isConfirm) {
-            fetch(`http://localhost:5000/book/${id}`, {
+            fetch(`https://calm-reaches-89573.herokuapp.com/book/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
