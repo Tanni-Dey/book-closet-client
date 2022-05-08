@@ -21,7 +21,7 @@ const Header = () => {
                         <NavLink to='/'
                             className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-red-400"
                         >
-                            <span className='hidden md:flex items-center gap-2'><GiOpenBook className='text-xl' />Book Closet</span>
+                            <span className={`${useLocation().pathname !== "/" ? "flex" : "hidden"} md:flex items-center gap-2`}><GiOpenBook className='text-xl' />Book Closet</span>
                         </NavLink>
                         <button
                             className="text-red-400 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"

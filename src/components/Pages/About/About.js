@@ -1,10 +1,8 @@
 import React from 'react';
-import Header from '../../Shared/Header/Header';
 
 const About = () => {
     return (
         <div>
-            <Header />
             <div className='px-10 md:px-20 pt-10 md:pt-16 pb-20'>
                 <h2 className='text-4xl mx-auto my-16 md:my-20 font-serif '>About Us</h2>
                 <div className=' grid grid-cols-1 gap-10 md:gap-20 items-center md:grid-cols-2'>

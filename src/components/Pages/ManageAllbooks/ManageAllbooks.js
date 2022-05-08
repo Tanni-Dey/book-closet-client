@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAllBooks from '../../hooks/useAllbooks/useAllBooks';
 import { AiFillDelete } from 'react-icons/ai'
 
 const ManageAllbooks = () => {
-    const [books, setBooks] = useAllBooks();
+    const [books, setBooks] = useState([]);
+    const [pageNumber, setPageNumber] = useState(0)
+    const [selectPage, setselectPage] = useState(0)
+    const [size, setSize] = useState(5)
+
+
+    //pagination fetch
+    useEffect(() => {
+        fetch('http://localhost:5000/pagination')
+            .then(res => res.json())
+            .then(data => {
+                const booknumber = data.count;
+                const pages = Math.ceil(booknumber / 5);
+                setPageNumber(pages)
+            })
+    }, [])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/books?page=${selectPage}&size=${size}`)
+            .then(res => res.json())
+            .then(data => setBooks(data))
+    }, [selectPage, size])
+
 
     const handleDelete = (id) => {
         const isConfirm = window.confirm('Are you want delete this book?')
@@ -48,6 +70,18 @@ const ManageAllbooks = () => {
                     }
                 </table>
             </div>
+
+            <div className='mt-5'>
+                {
+                    [...Array(pageNumber).keys()].map(number => <button className={`${number === selectPage ? "bg-red-400" : "bg-gray-300"} px-3 py-1 mx-1  text-white`} onClick={() => setselectPage(number)}>{number + 1}</button>)
+                }
+                <select className='p-1 bg-gray-300' onChange={(e) => setSize(e.target.value)}>
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+            </div>
+
         </div>
     );
 };
