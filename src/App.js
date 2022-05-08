@@ -16,6 +16,7 @@ import Header from './components/Shared/Header/Header';
 import RequiredAuth from './components/Shared/RequiredAuth/RequiredAuth';
 
 function App() {
+
   return (
     <div className="App">
       <Header />

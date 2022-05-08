@@ -22,7 +22,7 @@ const AddBook = () => {
     };
 
     return (
-        <div className='bg-red-200 px-20 py-24 h-full'>
+        <div className='bg-red-200 px-10 md:px-20 py-24 h-full'>
             <div className='md:w-1/2 mx-auto'>
                 <h3 className='font-serif text-3xl'>Add Book</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>

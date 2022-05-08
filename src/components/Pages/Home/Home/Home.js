@@ -4,20 +4,16 @@ import Upcoming from '../Upcoming/Upcoming'
 import Bestbook from '../Bestbook/Bestbook'
 import AllBooks from '../AllBooks/Allbooks/AllBooks';
 import Loading from '../../../Shared/Loading/Loading'
+import useAllBooks from '../../../hooks/useAllbooks/useAllBooks'
 
 const Home = () => {
-    const [spinner, setSpinner] = useState(true);
+    const [books, setBooks] = useAllBooks()
 
-    useEffect(() => {
-        setTimeout(() => setSpinner(false), 1000)
-    }, []);
-
-    if (spinner) {
+    if (books.length === 0) {
         return <Loading />
     }
 
     return (
-        !spinner &&
         <div>
             <Banner />
             <AllBooks />

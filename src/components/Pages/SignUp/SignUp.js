@@ -48,8 +48,8 @@ const SignUp = () => {
     }
 
     return (
-        <div className='bg-red-200 py-40 h-full grid grid-cols-1 md:grid-cols-2'>
-            <div className='w-1/2 mx-auto'>
+        <div className='bg-red-200 py-20 md:py-40 h-full grid grid-cols-1 md:grid-cols-2'>
+            <div className='px-10 md:px-0 md:w-1/2 mx-auto'>
                 <h3 className='font-serif text-3xl'>Sign Up</h3>
                 <form onSubmit={handleSignup}>
                     <input className='p-2 mt-5 px-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Name' type='text' name='name' />
@@ -61,8 +61,8 @@ const SignUp = () => {
                     }
                     <input className='text-white bg-red-400 rounded-3xl px-10 py-2 my-5 border-2 border-red-400 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700' type="submit" value='Sign Up' />
                 </form>
-                <p className='text-orange-900 text-xl'>Already Have An Account? <Link to='/login'
-                    className=" py-2 text-xl underline  text-red-400 "
+                <p className='text-orange-900 md:text-xl'>Already Have An Account? <Link to='/login'
+                    className=" py-2 md:text-xl underline  text-red-400 "
                 >
                     <span className="ml-2">Login</span>
                 </Link></p>

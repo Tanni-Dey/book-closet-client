@@ -6,11 +6,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import useAllBooks from '../../hooks/useAllbooks/useAllBooks';
+import Loading from '../../Shared/Loading/Loading';
 
 const MyBooks = () => {
     const [books, setBooks] = useAllBooks()
     const [myaddedBooks, setMyaddedBooks] = useState([])
-    const [user] = useAuthState(auth);
+    const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -35,6 +36,12 @@ const MyBooks = () => {
         getMyBooks()
     }, [books])
 
+
+    if (loading || books.length === 0) {
+        <Loading />
+    }
+
+
     const handleDelete = (id) => {
         const isConfirm = window.confirm('Are you want delete this book?')
         if (isConfirm) {
@@ -52,10 +59,10 @@ const MyBooks = () => {
         }
     }
     return (
-        <div className='px-20 py-24'>
+        <div className='px-10 md:px-20 py-24 md:py-36'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5 items-center '>
                 {
-                    myaddedBooks.map(book => <div key={book._id} className='border-2 border-red-400 bg-red-400 rounded-xl hover:shadow-2xl hover:shadow-black transition ease-in-out  hover:scale-105 grid grid-cols-2  duration-700'>
+                    myaddedBooks.map(book => <div key={book._id} className='border-2 border-red-400 bg-red-400 rounded-xl hover:shadow-2xl hover:shadow-black transition ease-in-out  hover:scale-105 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-0 duration-700'>
                         <div className='p-5'>
                             <img className='rounded-xl ' src={book.img} alt="" />
                         </div>

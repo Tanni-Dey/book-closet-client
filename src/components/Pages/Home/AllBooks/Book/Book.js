@@ -8,13 +8,13 @@ const Book = ({ book }) => {
     const [show, setShow] = useState(false)
     return (
         <div className='bg-white rounded-xl p-5'>
-            <div className='p-5'>
+            <div className='md:p-5'>
                 <img className='rounded-xl hover:shadow-2xl hover:shadow-black transition ease-in-out  hover:scale-110  duration-700' src={img} alt="" />
             </div>
 
             <h4 className='text-xl text-red-400 font-serif my-5'>{name}</h4>
-            <p className='h-44 text-gray-400 font-sans text-justify px-5'>Overview:  {
-                show ? des : des.slice(0, 200)
+            <p className='text-gray-400 font-sans text-justify md:px-5'>Overview:  {
+                show ? des : des.slice(0, 150)
             }
                 {
                     <button className='text-red-400 underline ' onClick={() => setShow(!show)}>{show ? 'see less' : 'see more'}</button>

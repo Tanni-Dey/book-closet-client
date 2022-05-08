@@ -75,8 +75,8 @@ const Login = () => {
 
 
     return (
-        !spinner && <div className='bg-red-200 py-40 h-full grid grid-cols-1 md:grid-cols-2'>
-            <div className='w-full md:w-1/2 mx-auto'>
+        !spinner && <div className='bg-red-200 py-20 md:py-40 h-full grid grid-cols-1 md:grid-cols-2'>
+            <div className='w-full px-10 md:px-0 md:w-1/2 mx-auto'>
                 <h3 className='font-serif text-3xl'>Login</h3>
                 <form onSubmit={handleLogin}>
                     <input className='py-2 px-5 mt-5 focus:outline-red-300 rounded-full mb-2 w-full' placeholder='Your Email' type='email' ref={emailRef} name='email' required />
@@ -86,10 +86,10 @@ const Login = () => {
                     }
                     <input className='text-white bg-red-400 rounded-3xl px-10 py-2 my-5 border-2 border-red-400 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700' type="submit" value='Login' />
                 </form>
-                <p className='text-orange-900 text-xl'>Create An Account? <Link to='/signup'
-                    className=" py-2 text-xl underline  text-red-400 ">Sign Up</Link></p>
+                <p className='text-orange-900 md:text-xl'>Create An Account? <Link to='/signup'
+                    className=" py-2 md:text-xl underline  text-red-400 ">Sign Up</Link></p>
 
-                <p className='text-orange-900 text-xl'>Forget Password? <button onClick={handleReset} className=" py-2 text-xl underline  text-red-400 " >
+                <p className='text-orange-900 md:text-xl'>Forget Password? <button onClick={handleReset} className=" py-2 md:text-xl underline  text-red-400 " >
                     Reset Password
                 </button></p>
                 {

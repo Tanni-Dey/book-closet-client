@@ -37,9 +37,14 @@ const Social = () => {
     }
     return (
         <div>
+            <div className='flex items-center justify-center py-5 md:hidden'>
+                <hr className='w-1/3' />
+                <div className='px-3'>or</div>
+                <hr className='w-1/3' />
+            </div>
             <h2 className='font-serif text-xl'>Sign Up with Social Media</h2>
-            <button onClick={() => signInWithGoogle()} className='flex items-center font-serif w-1/2 mx-auto justify-center text-xl text-white bg-red-700 rounded-3xl px-10 py-2 my-5 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700'><FcGoogle className='mr-5' /> Google</button>
-            <button onClick={() => signInWithGithub()} className='flex items-center font-serif w-1/2 mx-auto justify-center text-xl text-white bg-black rounded-3xl px-10 py-2 my-5 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700'><BsGithub className='mr-5' /> Github</button>
+            <button onClick={() => signInWithGoogle()} className='flex items-center font-serif md:w-1/2 mx-auto justify-center text-xl text-white bg-red-700 rounded-3xl px-10 py-2 my-5 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700'><FcGoogle className='mr-5' /> Google</button>
+            <button onClick={() => signInWithGithub()} className='flex items-center font-serif md:w-1/2 mx-auto justify-center text-xl text-white bg-black rounded-3xl px-10 py-2 my-5 drop-shadow-xl  transition ease-in-out  hover:scale-110  duration-700'><BsGithub className='mr-5' /> Github</button>
         </div>
     );
 };
