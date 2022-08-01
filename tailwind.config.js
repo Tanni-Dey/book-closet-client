@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'gift': "url('/src/imges/gift_banner.jpg')"
+      },
       fontFamily: {
         sans: ['Libre Bodoni', 'serif'],
         serif: ['Noto Serif', 'serif']

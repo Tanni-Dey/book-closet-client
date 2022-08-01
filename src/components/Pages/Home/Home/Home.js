@@ -5,6 +5,8 @@ import Bestbook from '../Bestbook/Bestbook'
 import AllBooks from '../AllBooks/Allbooks/AllBooks';
 import Loading from '../../../Shared/Loading/Loading'
 import useAllBooks from '../../../hooks/useAllbooks/useAllBooks'
+import Author from '../Author/Author';
+import Gift from '../Gift/Gift';
 
 const Home = () => {
     const [books, setBooks] = useAllBooks()
@@ -19,6 +21,8 @@ const Home = () => {
             <AllBooks />
             <Bestbook />
             <Upcoming />
+            <Author />
+            <Gift />
         </div>
     );
 };

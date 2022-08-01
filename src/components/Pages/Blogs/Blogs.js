@@ -14,7 +14,7 @@ const Blogs = () => {
                     <li>5. It can only run in browser </li>
                 </ul>
                 <ul>
-                    <h2 className='text-xl my-5 font-serif'>JavaScript :</h2>
+                    <h2 className='text-xl my-5 font-serif'>Node Js :</h2>
                     <li>1. It's runtime environment of javascript</li>
                     <li>2. It's generally use for Server Side </li>
                     <li>3. Node js has some modules that's most use for development. </li>
