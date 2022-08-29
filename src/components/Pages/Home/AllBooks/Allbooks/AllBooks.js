@@ -8,6 +8,7 @@ const AllBooks = () => {
     return (
         <div className='pt-10 md:pt-20 pb-20 px-10 md:px-20 bg-gray-200'>
             <h2 className='text-3xl font-serif text-red-400'>Popular Books</h2>
+            <input type="text" />
             <div className='grid grid-cols-1 gap-10 mt-10 md:mt-20 md:grid-cols-3'>
                 {
                     books.slice(0, 6).map(book => <Book key={book._id} book={book} />)

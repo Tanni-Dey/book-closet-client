@@ -3,7 +3,6 @@ import { ToastContainer } from 'react-toastify';
 import './App.css';
 import About from './components/Pages/About/About';
 import AddBook from './components/Pages/AddBook/AddBook';
-import Blogs from './components/Pages/Blogs/Blogs';
 import Home from './components/Pages/Home/Home/Home';
 import Login from './components/Pages/Login/Login';
 import ManageAllbooks from './components/Pages/ManageAllbooks/ManageAllbooks';
@@ -25,7 +24,6 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/blogs' element={<Blogs />} />
         <Route path='/addbook' element={<RequiredAuth>
           <AddBook />
         </RequiredAuth>} />

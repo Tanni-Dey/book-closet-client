@@ -117,15 +117,6 @@ const Header = () => {
                                     </NavLink> : ''
                                 }
                             </li>
-                            <li className="nav-item">
-                                <NavLink style={({ isActive }) =>
-                                    isActive ? activeStyle : undefined
-                                } to='/blogs'
-                                    className="px-3 py-2 flex items-center text-xl font-semibold leading-snug text-red-400 hover:opacity-75"
-                                >
-                                    <span className="ml-2">Blogs</span>
-                                </NavLink>
-                            </li>
                         </ul>
                     </div>
                 </div>
