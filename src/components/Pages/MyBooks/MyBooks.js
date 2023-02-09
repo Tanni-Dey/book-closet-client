@@ -19,7 +19,7 @@ const MyBooks = () => {
             const email = user.email;
             try {
 
-                const { data } = await axios.get(`https://calm-reaches-89573.herokuapp.com/mybook?email=${email}`, {
+                const { data } = await axios.get(`https://book-closet-server.onrender.com/mybook?email=${email}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -45,7 +45,7 @@ const MyBooks = () => {
     const handleDelete = (id) => {
         const isConfirm = window.confirm('Are you want delete this book?')
         if (isConfirm) {
-            fetch(`https://calm-reaches-89573.herokuapp.com/book/${id}`, {
+            fetch(`https://book-closet-server.onrender.com/book/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

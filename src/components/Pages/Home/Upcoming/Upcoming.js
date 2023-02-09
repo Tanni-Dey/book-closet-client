@@ -5,7 +5,7 @@ const Upcoming = () => {
     const [upcomingBooks, setUpcomingBooks] = useState([]);
 
     useEffect(() => {
-        fetch('https://calm-reaches-89573.herokuapp.com/upcoming')
+        fetch('https://book-closet-server.onrender.com/upcoming')
             .then(res => res.json())
             .then(data => setUpcomingBooks(data))
     }, [])

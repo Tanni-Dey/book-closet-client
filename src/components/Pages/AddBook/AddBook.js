@@ -32,7 +32,7 @@ const AddBook = () => {
                     sName: data.sName,
                     des: data.des
                 }
-                fetch('https://calm-reaches-89573.herokuapp.com/books', {
+                fetch('https://book-closet-server.onrender.com/books', {
                     method: 'POST',
                     headers: {
                         "content-type": "application/json"

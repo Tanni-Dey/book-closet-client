@@ -14,7 +14,7 @@ const ManageAllbooks = () => {
 
     //pagination fetch
     useEffect(() => {
-        fetch(' https://calm-reaches-89573.herokuapp.com/pagination')
+        fetch(' https://book-closet-server.onrender.com/pagination')
             .then(res => res.json())
             .then(data => {
                 const booknumber = data.count;
@@ -24,7 +24,7 @@ const ManageAllbooks = () => {
     }, [])
 
     useEffect(() => {
-        fetch(` https://calm-reaches-89573.herokuapp.com/books?page=${selectPage}&size=${size}`)
+        fetch(` https://book-closet-server.onrender.com/books?page=${selectPage}&size=${size}`)
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [selectPage, size])
@@ -33,7 +33,7 @@ const ManageAllbooks = () => {
     const handleDelete = (id) => {
         const isConfirm = window.confirm('Are you want delete this book?')
         if (isConfirm) {
-            fetch(`https://calm-reaches-89573.herokuapp.com/book/${id}`, {
+            fetch(`https://book-closet-server.onrender.com/book/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

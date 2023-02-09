@@ -52,7 +52,7 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passRef.current.value;
         await signInWithEmailAndPassword(email, password)
-        const { data } = await axios.post('https://calm-reaches-89573.herokuapp.com/login', { email })
+        const { data } = await axios.post('https://book-closet-server.onrender.com/login', { email })
         localStorage.setItem('accessToken', data.accessToken)
 
     }
