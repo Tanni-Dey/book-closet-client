@@ -11,10 +11,6 @@ import Gift from '../Gift/Gift';
 const Home = () => {
     const [books, setBooks] = useAllBooks()
 
-    if (books.length === 0) {
-        return <Loading />
-    }
-
     return (
         <div>
             <Banner />

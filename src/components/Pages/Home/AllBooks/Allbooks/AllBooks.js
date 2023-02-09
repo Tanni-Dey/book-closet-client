@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAllBooks from '../../../../hooks/useAllbooks/useAllBooks';
+import Loading from '../../../../Shared/Loading/Loading';
 import Book from '../Book/Book';
 
 const AllBooks = () => {
     const [books, setBooks] = useAllBooks();
+    if (books.length === 0) {
+        return <Loading />
+    }
     return (
         <div className='pt-10 md:pt-20 pb-20 px-10 md:px-20 bg-gray-200'>
             <h2 className='text-3xl font-serif text-red-400'>Popular Books</h2>
